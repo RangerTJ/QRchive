@@ -22,7 +22,8 @@ let scanning = false;
 qrcode.callback = res => {
   if (res) {
     outputData.innerText = res;
-    // TO DO: Run helper method to save URL information to archive
+    // TO DO: Possibly alter way result string displays (show w/ description or auto-close or take to archive page or... open prompt, or...?)
+    // TO DO: Run helper method to save URL information to archive JSON
     
     scanning = false;
 
