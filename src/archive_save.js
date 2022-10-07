@@ -12,8 +12,9 @@ function saveCode(scanResults)
     // Set up the qr_info object to be saved to a local file
     const scanText = String(scanResults);
     // const desc = String(helper(scanResults));  // TO DO: NEED TO IMPORT HELPER OR JUST PUT IT IN HERE / THE OTHER FILE
-    const desc = String(Placeholder);
-    const timestampStr = String(Date(Date.now()));
+    const desc = "Placeholder until helper implemented";
+    // const timestampStr = String(Date(Date.now()));  // Ultra mega verbose date info
+    const timestampStr = test_date = new Date().toDateString();  // [Day Month Date Year] format
     const qrInfo = {url: scanText, description: desc , time: timestampStr};
     let localData = localStorage.getItem('qrHistory');
 
