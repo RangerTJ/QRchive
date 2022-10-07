@@ -8,3 +8,17 @@ Description:  Helper method that takes a string (from the QR scanner results) an
 //TO DO: Ping Server for Description
 //TO DO: Handle timeout/bad connection/invalid URL
 //TO DO: Return description from ping as string
+
+//Open source tool: https://allorigins.win/ 
+//Pulls contents from remote HTML URL 
+
+const getTitle = (url) => {
+    return fetch(`https://api.allorigins.win/get?url=${url}`)
+        .then((response) => response.text())
+        .then((html) => {
+            const doc = new DOMParser().parseFromString(html, "text/html");
+            const title = doc.querySelectorAll('title')[0];
+            return title.innerText;
+        });
+}; 
+
