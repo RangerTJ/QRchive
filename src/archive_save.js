@@ -8,7 +8,8 @@ function save_code(scan_results)
 {
     // Set up the qr_info object to be saved to a local file
     var scanText = String(scan_results);
-    var desc = String(helper(scan_results));  // TO DO: NEED TO IMPORT HELPER OR JUST PUT IT IN HERE / THE OTHER FILE
+    // var desc = String(helper(scan_results));  // TO DO: NEED TO IMPORT HELPER OR JUST PUT IT IN HERE / THE OTHER FILE
+    var desc = String(Placeholder);
     var timestampStr = String(Date.now());
     var qrInfo = {url: scanText, description: desc , time: timestampStr};
     let localData = localStorage.getItem('qrHistory');
@@ -27,3 +28,8 @@ function save_code(scan_results)
     localData.append(qrInfo);
     localStorage.setItem('qrHistory', JSON.stringify(localData));
 }
+
+
+// Test Archive
+const test_url = www.google.com;
+save_code(test_url)
