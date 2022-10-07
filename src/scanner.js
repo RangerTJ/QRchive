@@ -7,7 +7,7 @@ Description:  Code for a web-based QR code scanner. WIP - Modified from original
               to alsoarchive the printed information in a JSON file (including time stamp and description, if it is a legitimate web URL).
 */
 
-const qrcode = window.qrcode;
+const qrCode = window.qrcode;
 
 const video = document.createElement("video");
 const canvasElement = document.getElementById("qr-canvas");
@@ -19,7 +19,7 @@ const btnScanQR = document.getElementById("btn-scan-qr");
 
 let scanning = false;
 
-qrcode.callback = res => {
+qrCode.callback = res => {
   if (res) {
     outputData.innerText = res;
     // TO DO: Possibly alter way result string displays (show w/ description or auto-close or take to archive page or... open prompt, or...?)
@@ -63,7 +63,7 @@ function tick() {
 
 function scan() {
   try {
-    qrcode.decode();
+    qrCode.decode();
   } catch (e) {
     setTimeout(scan, 300);
   }

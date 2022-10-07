@@ -1,6 +1,36 @@
-/* 
+<!-- /* 
 Date: 10/6/2022
 Description:  Launch page for QRchive. Gives access to scanner functionality and has a link to view archived results.
 */
 
-// TO DO: Everything
+// TO DO: Everything -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>QRchive</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <link rel="stylesheet" href="src/styles.css" />
+    <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <a id="btn-scan-qr">
+        <img src="media/QRchivelogo.png">
+      <a/>
+      <div id="btns">
+        <button class="">Click to Scan</button>
+        <button class="">Archive</button>
+      </div>
+      <canvas hidden="" id="qr-canvas"></canvas>
+
+      <div id="qr-result" hidden="">
+        <span id="outputData"></span>
+      </div>
+    </div>
+
+    <script src="./src/scanner.js"></script>
+  </body>
+</html>
