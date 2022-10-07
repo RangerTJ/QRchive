@@ -17,17 +17,17 @@ function saveCode(scanResults)
     const qrInfo = {url: scanText, description: desc , time: timestampStr};
     let localData = localStorage.getItem('qrHistory');
 
-    // Sets an empty array to add our QR info object too if this is the first scan
+    // Sets a blank array for local data, if there is no QR scan history JSON
     if (!localData) {
         localData = [];
     }
 
-    // Parses the JSON QR scan history into a an actual array (vs. string)
+    // Parses the QR scan history JSON into a a logical array if the JSON already exists
     else {
-        localData = JSON.parse(localData)
+        localData = JSON.parse(localData);
     }
 
-    // Writes the QR info object to the history array object and updates the JSON
-    localData.append(qrInfo);
+    // Adds the QR info object to the history array and updates the JSON with the new array
+    localData.push(qrInfo);
     localStorage.setItem('qrHistory', JSON.stringify(localData));
 }
