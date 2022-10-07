@@ -12,7 +12,10 @@ const qrCode = window.qrcode;
 const video = document.createElement("video");
 const canvasElement = document.getElementById("qr-canvas");
 const cancelBtnElement = document.getElementById("cancel-btn")
+
 const archiveElement = document.getElementById("archive-btn")
+const archiveTable = document.getElementById("archive-table")
+
 const clickAboveElement = document.getElementById("click-to-scan")
 const addBtnElement = document.getElementById("add-btn")
 const addedToElement = document.getElementById("added-to")
@@ -78,8 +81,13 @@ btnScanQR.onclick = () => {
 
 
 archiveElement.onclick = () => {
-  console.log('hit');
+  if (!archiveTable.hidden) {
+    archiveTable.hidden = true
+  } else {
+    archiveTable.hidden = false
+  }
 }
+
 
 addBtnElement.onclick = () => {
   console.log('hit');

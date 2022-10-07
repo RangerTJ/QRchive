@@ -16,7 +16,15 @@ html {
     padding: 0;
     height: 100%;
     font-family: 'Ubuntu', sans-serif;
+  }
 
+  ul {
+      list-style-type: none;
+  }
+
+  a {
+      color: white;
+      text-decoration: none;
   }
 
   .container {
@@ -25,9 +33,24 @@ html {
       text-align: center;
   }
 
+  #archive-div {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+  }
+
+  #archive-table {
+      align-self: center;
+  }
+
+  #archive-table td {
+      padding: 10px 30px;
+  }
+
   #archive-btn {
       cursor: pointer;
       position: relative;
+      margin-top: 20px;
       height: 30px;
       width: 100px;
       background-color: rgb(33, 156, 228);
@@ -60,7 +83,7 @@ html {
   }
 
   #qrchive-logo {
-    height: 10em;
+    height: 8em;
   }
   
   #qr-canvas {
