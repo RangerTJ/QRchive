@@ -22,6 +22,8 @@ let scanning = false;
 qrcode.callback = res => {
   if (res) {
     outputData.innerText = res;
+    // TO DO: Run helper method to save URL information to archive
+    
     scanning = false;
 
     video.srcObject.getTracks().forEach(track => {
