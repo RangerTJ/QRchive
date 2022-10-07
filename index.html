@@ -12,23 +12,42 @@ Description:  Launch page for QRchive. Gives access to scanner functionality and
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
     <link rel="stylesheet" href="src/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="shortcut icon" href="media/qrlogo.png"/>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
     <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
   </head>
 
   <body>
     <div class="container">
-      <a id="btn-scan-qr">
-        <img src="media/QRchivelogo.png">
-      <a/>
-      <div id="btns">
-        <button class="">Click to Scan</button>
-        <button class="">Archive</button>
+        <div>
+            <img id="qrchive-logo" src="media/QRchivelogo.png">
+        </div>
+        <a id="btn-scan-qr">
+            <img src="media/qrcode.png">
+        <a/>
+
+      <p id="click-to-scan">Click above to scan</p>
+
+      <div>
+        <button id="archive-btn">Archive</button>
       </div>
-      <canvas hidden="" id="qr-canvas"></canvas>
+
+      <div>
+          <div>
+              <canvas hidden="" id="qr-canvas"></canvas>
+          </div>
+          <div>
+              <button hidden="" id="cancel-btn">Cancel</button>
+          </div>
+      </div>
 
       <div id="qr-result" hidden="">
-        <span id="outputData"></span>
+        <span id="outputData"></span><button id="add-btn">Add</button>
+        <p hidden="" id="added-to">New link successfully added to archive!</p>
       </div>
+
     </div>
 
     <script src="./src/scanner.js"></script>

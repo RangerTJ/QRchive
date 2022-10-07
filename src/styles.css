@@ -10,9 +10,13 @@ html {
   }
   
   body {
+    background-color: black;
+    color: white;
     margin: 0;
     padding: 0;
     height: 100%;
+    font-family: 'Ubuntu', sans-serif;
+
   }
 
   .container {
@@ -20,8 +24,47 @@ html {
       padding: 10px;
       text-align: center;
   }
+
+  #archive-btn {
+      cursor: pointer;
+      position: relative;
+      height: 30px;
+      width: 100px;
+      background-color: rgb(33, 156, 228);
+      color: white;
+      border: none;
+      border-radius: 20px;
+  }
+
+  #add-btn {
+    cursor: pointer;
+    position: relative;
+    height: 30px;
+    width: 100px;
+    background-color: rgb(33, 156, 228);
+    color: white;
+    border: none;
+    border-radius: 20px;
+  }
+
+  #cancel-btn {
+    margin: 10px 0 10px 0;
+    cursor: pointer;
+    position: relative;
+    height: 30px;
+    width: 100px;
+    background-color: rgb(211, 79, 79);
+    color: white;
+    border: none;
+    border-radius: 20px;
+  }
+
+  #qrchive-logo {
+    height: 10em;
+  }
   
   #qr-canvas {
+    margin-top: 100px;
     width: calc(100% - 20px);
     max-width: 400px;
   }
@@ -33,4 +76,12 @@ html {
   #btn-scan-qr img {
     height: 10em;
     background: white;
+  }
+
+  #qr-result {
+      margin-top: 20px;
+  }
+
+  #outputData {
+      margin-right: 20px;
   }

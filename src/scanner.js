@@ -11,6 +11,11 @@ const qrCode = window.qrcode;
 
 const video = document.createElement("video");
 const canvasElement = document.getElementById("qr-canvas");
+const cancelBtnElement = document.getElementById("cancel-btn")
+const archiveElement = document.getElementById("archive-btn")
+const clickAboveElement = document.getElementById("click-to-scan")
+const addBtnElement = document.getElementById("add-btn")
+const addedToElement = document.getElementById("added-to")
 const canvas = canvasElement.getContext("2d");
 
 const qrResult = document.getElementById("qr-result");
@@ -32,8 +37,12 @@ qrCode.callback = res => {
     });
 
     qrResult.hidden = false;
+    archiveElement.hidden = false
+    clickAboveElement.hidden = false;
+    cancelBtnElement.hidden = true;
     canvasElement.hidden = true;
     btnScanQR.hidden = false;
+    addBtnElement.hidden = false;
   }
 };
 
@@ -44,6 +53,9 @@ btnScanQR.onclick = () => {
       scanning = true;
       qrResult.hidden = true;
       btnScanQR.hidden = true;
+      archiveElement.hidden = true;
+      clickAboveElement.hidden = true;
+      cancelBtnElement.hidden = false;
       canvasElement.hidden = false;
       video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
       video.srcObject = stream;
@@ -51,7 +63,28 @@ btnScanQR.onclick = () => {
       tick();
       scan();
     });
+  
+  cancelBtnElement.onclick = () => {
+    qrResult.hidden = false;
+    archiveElement.hidden = false
+    clickAboveElement.hidden = false;
+    cancelBtnElement.hidden = true;
+    canvasElement.hidden = true;
+    btnScanQR.hidden = false;
+    addBtnElement.hidden = true;
+  }
 };
+
+
+archiveElement.onclick = () => {
+  console.log('hit');
+}
+
+addBtnElement.onclick = () => {
+  console.log('hit');
+  addedToElement
+}
+
 
 function tick() {
   canvasElement.height = video.videoHeight;
