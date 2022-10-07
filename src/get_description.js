@@ -14,11 +14,22 @@ Description:  Helper method that takes a string (from the QR scanner results) an
 
 const getTitle = (url) => {
     return fetch(`https://api.allorigins.win/get?url=${url}`)
-        .then((response) => response.text())
+        .then((response) => {
+            // checks whether response status code is not in 200-299 range 
+            if (!response.ok) {
+                throw new Error("Unsuccessful fetch operation. Please try again.");
+            }
+            return response.text();
+        })
         .then((html) => {
             const doc = new DOMParser().parseFromString(html, "text/html");
             const title = doc.querySelectorAll('title')[0];
+            // if there is no valid title, returns generic placeholder string
+            if (!title) {
+                let placeholderText = "Untitled webpage"
+                return placeholderText
+            }
             return title.innerText;
         });
-}; 
+};
 
