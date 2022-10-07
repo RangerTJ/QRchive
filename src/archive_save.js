@@ -13,7 +13,7 @@ function saveCode(scanResults)
     const scanText = String(scanResults);
     // const desc = String(helper(scanResults));  // TO DO: NEED TO IMPORT HELPER OR JUST PUT IT IN HERE / THE OTHER FILE
     const desc = String(Placeholder);
-    const timestampStr = String(Date.now());
+    const timestampStr = String(Date(Date.now()));
     const qrInfo = {url: scanText, description: desc , time: timestampStr};
     let localData = localStorage.getItem('qrHistory');
 
