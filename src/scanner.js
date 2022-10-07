@@ -55,6 +55,7 @@ btnScanQR.onclick = () => {
       btnScanQR.hidden = true;
       archiveElement.hidden = true;
       clickAboveElement.hidden = true;
+      addedToElement.hidden = true;
       cancelBtnElement.hidden = false;
       canvasElement.hidden = false;
       video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
@@ -82,7 +83,7 @@ archiveElement.onclick = () => {
 
 addBtnElement.onclick = () => {
   console.log('hit');
-  addedToElement
+  addedToElement.hidden = false
 }
 
 
