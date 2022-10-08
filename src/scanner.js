@@ -55,6 +55,7 @@ btnScanQR.onclick = () => {
       qrResult.hidden = true;
       btnScanQR.hidden = true;
       archiveElement.hidden = true;
+      archiveTable.hidden = true;
       clickAboveElement.hidden = true;
       addedToElement.hidden = true;
       cancelBtnElement.hidden = false;
@@ -89,6 +90,7 @@ archiveElement.onclick = () => {
   if (!archiveTable.hidden) {
     archiveTable.hidden = true
   } else {
+    archiveUpdate();
     archiveTable.hidden = false
   }
 }
@@ -147,13 +149,12 @@ const getTitle = (url) => {
 
 // Helper method that takes a string (from the QR scanner results) and saves the URL, its title, and a timestamp entry to an 
 // archive JSON that can be accessed later to view previously scanned QR codes. Saves JSON locally. 
-function saveCode(scanResults)
-{
+function saveCode(scanResults) {
     // Set up the qr_info object to be saved to a local file
     const scanText = String(scanResults);
     const urlTitle = String(getTitle(scanResults));
     const timestampStr = test_date = new Date().toDateString();
-    const qrInfo = {url: scanText, title: urlTitle , time: timestampStr};
+    const qrInfo = {url: scanText, title: urlTitle , date: timestampStr};
     let localData = localStorage.getItem('qrHistory');
 
     // Sets a blank array for local data, if there is no QR scan history JSON
@@ -174,3 +175,39 @@ function saveCode(scanResults)
     // const validation = localStorage.getItem('qrHistory');
     // alert(String(validation));
 }
+
+
+// Generates a table and populates it based on qrHistory in local storage
+// Modeled off approach at https://stackoverflow.com/questions/64949448/how-to-create-a-table-from-an-array-using-javascript
+
+function archiveUpdate() {
+  // Get the QR history from JSON and turn it into logical array
+  let localData = localStorage.getItem('qrHistory');
+  localData = JSON.parse(localData);
+
+  // Wipe out the old table contents and start fresh!
+  archiveTable.innerHTML = "";
+
+  // Set the headers
+  let tableHeaders = ["QR Result", "Page Title", "Date"];
+
+  // Loop through localStorage QR history to build and populate the table
+  for (let index = 0; index < localData.length; index++) {
+    let current_row = archiveTable.insertRow(index);
+    current_row.insertCell(0).innerHTML = localData[index].url;
+    current_row.insertCell(1).innerHTML = localData[index].title;
+    current_row.insertCell(2).innerHTML = localData[index].date;
+  }
+
+  // Create the header and loop through the header array to populate it
+  let header = archiveTable.createTHead();
+  let headerRow = header.insertRow(0);
+  for (let index = 0; index < tableHeaders.length; index++) {
+    headerRow.insertCell(index).innerHTML = tableHeaders[index];
+  };
+
+  document.body.append(archiveTable);
+
+  //TO-DO: If JSON is empty, add a 1-row/1-column entry that says "There is nothing to see here!" instead
+  //TO-DO: Figure out what formatting got all weird and left justified instead of centered
+};
