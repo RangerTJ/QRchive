@@ -151,10 +151,10 @@ const getTitle = async (url) => {
 
 // Helper method that takes a string (from the QR scanner results) and saves the URL, its title, and a timestamp entry to an
 // archive JSON that can be accessed later to view previously scanned QR codes. Saves JSON locally.
-function saveCode(scanResults) {
+async function saveCode(scanResults) {
   // Set up the qr_info object to be saved to a local file
   const scanText = String(scanResults);
-  const urlTitle = String(getTitle(scanResults));
+  const urlTitle = String(await getTitle(scanResults));
   const timestampStr = (test_date = new Date().toDateString());
   const qrInfo = { url: scanText, title: urlTitle, date: timestampStr };
   let localData = localStorage.getItem("qrHistory");
