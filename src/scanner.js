@@ -98,6 +98,9 @@ archiveElement.onclick = () => {
 
 addBtnElement.onclick = () => {
   console.log('hit');
+  // Hope it works! Should save the code to local storage
+  // alert(getTitle(outputData.innerText))  // Test for getTitle output
+  saveCode(outputData.innerText);
   addedToElement.hidden = false
 }
 
@@ -110,10 +113,66 @@ function tick() {
   scanning && requestAnimationFrame(tick);
 }
 
+
 function scan() {
   try {
     qrCode.decode();
   } catch (e) {
     setTimeout(scan, 300);
   }
+}
+
+
+//Open source tool: https://allorigins.win/ 
+//Pulls contents from remote HTML URL 
+const getTitle = (url) => {
+  return fetch(`https://api.allorigins.win/get?url=${url}`)
+      .then((response) => {
+          // checks whether response status code is not in 200-299 range 
+          if (!response.ok) {
+              throw new Error("Unsuccessful fetch operation. Please try again.");
+          }
+          return response.text();
+      })
+      .then((html) => {
+          const doc = new DOMParser().parseFromString(html, "text/html");
+          const title = doc.querySelectorAll('title')[0];
+          // if there is no valid title, returns generic placeholder string
+          if (!title) {
+              let placeholderText = "Untitled webpage"
+              return placeholderText
+          }
+          return title.innerText;
+      });
+};
+
+
+// Helper method that takes a string (from the QR scanner results) and saves the URL, its description, and a timestamp entry to an 
+// archive JSON that can be accessed later to view previously scanned QR codes. Saves JSON locally. 
+function saveCode(scanResults)
+{
+    // Set up the qr_info object to be saved to a local file
+    const scanText = String(scanResults);
+    const desc = String(getTitle(scanResults));
+    const timestampStr = test_date = new Date().toDateString();
+    const qrInfo = {url: scanText, description: desc , time: timestampStr};
+    let localData = localStorage.getItem('qrHistory');
+
+    // Sets a blank array for local data, if there is no QR scan history JSON
+    if (!localData) {
+        localData = [];
+    }
+
+    // Parses the QR scan history JSON into a a logical array if the JSON already exists
+    else {
+        localData = JSON.parse(localData);
+    }
+
+    // Adds the QR info object to the history array and updates the JSON with the new array
+    localData.push(qrInfo);
+    localStorage.setItem('qrHistory', JSON.stringify(localData));
+
+    // Testing - Uses alert to validate/monitor localStorage
+    // const validation = localStorage.getItem('qrHistory');
+    // alert(String(validation));
 }
