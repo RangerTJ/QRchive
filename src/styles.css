@@ -40,12 +40,12 @@ a {
 #archive-div {
   margin-top: 20px;
   display: flex;
-  justify-content: center;
+  justify-content: left;
 }
 
 #archive-table {
   align-self: center;
-  width: 70%;
+  width: 90%;
 }
 
 #archive-table td {

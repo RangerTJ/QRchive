@@ -99,7 +99,6 @@ archiveElement.onclick = () => {
 };
 
 addBtnElement.onclick = () => {
-  // alert(getTitle(outputData.innerText))  // Test for getTitle output
   // Adds scanned QR code information to local storage
   saveCode(outputData.innerText);
   addedToElement.hidden = false;
@@ -107,6 +106,9 @@ addBtnElement.onclick = () => {
   // Hides add button and link once added so that it doesn't get added again upon multiple clicks
   outputData.hidden = true;
   addBtnElement.hidden = true;
+
+  // Hides archive table so next viewing of it is refreshed with the new record
+  archiveTable.hidden = true;
 };
 
 function tick() {
@@ -172,10 +174,6 @@ async function saveCode(scanResults) {
   // Adds the QR info object to the history array and updates the JSON with the new array
   localData.push(qrInfo);
   localStorage.setItem("qrHistory", JSON.stringify(localData));
-
-  // Testing - Uses alert to validate/monitor localStorage
-  // const validation = localStorage.getItem('qrHistory');
-  // alert(String(validation));
 }
 
 // Generates a table and populates it based on qrHistory in local storage
@@ -212,8 +210,6 @@ function archiveUpdate() {
   for (let index = 0; index < tableHeaders.length; index++) {
     headerRow.insertCell(index).innerHTML = tableHeaders[index];
   }
-
-  //TO-DO: If JSON is empty, add a 1-row/1-column entry that says "There is nothing to see here!" instead
 }
 
 // "Beak Glass in Case of Emergency" to clear the local archive
