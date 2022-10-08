@@ -97,7 +97,6 @@ archiveElement.onclick = () => {
 
 
 addBtnElement.onclick = () => {
-  console.log('hit');
   // Hope it works! Should save the code to local storage
   // alert(getTitle(outputData.innerText))  // Test for getTitle output
   saveCode(outputData.innerText);
@@ -142,6 +141,7 @@ const getTitle = (url) => {
               let placeholderText = "Untitled webpage"
               return placeholderText
           }
+          console.log(title);
           return title.innerText;
       });
 };
