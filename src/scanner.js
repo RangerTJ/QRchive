@@ -50,7 +50,7 @@ qrCode.callback = res => {
 btnScanQR.onclick = () => {
   navigator.mediaDevices
     .getUserMedia({ video: { facingMode: "environment" } })
-    .then(function(stream) {
+    .then(function (stream) {
       scanning = true;
       qrResult.hidden = true;
       btnScanQR.hidden = true;
@@ -66,16 +66,16 @@ btnScanQR.onclick = () => {
       tick();
       scan();
     });
-  
+
   // Return back to default if cancel button is clicked
   cancelBtnElement.onclick = () => {
 
     scanning = false;
 
     video.srcObject.getTracks().forEach(track => {
-        track.stop();
-      });
-    
+      track.stop();
+    });
+
     qrResult.hidden = false;
     archiveElement.hidden = false
     clickAboveElement.hidden = false;
@@ -88,6 +88,8 @@ btnScanQR.onclick = () => {
 
 
 archiveElement.onclick = () => {
+  let data = localStorage.getItem('qrHistory');
+  if (!data || !data.length) return;
   if (!archiveTable.hidden) {
     archiveTable.hidden = true
   } else {
@@ -131,54 +133,54 @@ function scan() {
 //Pulls contents from remote HTML URL 
 const getTitle = (url) => {
   return fetch(`https://api.allorigins.win/get?url=${url}`)
-      .then((response) => {
-          // checks whether response status code is not in 200-299 range 
-          if (!response.ok) {
-              throw new Error("Unsuccessful fetch operation. Please try again.");
-          }
-          return response.text();
-      })
-      .then((html) => {
-          const doc = new DOMParser().parseFromString(html, "text/html");
-          const title = doc.querySelectorAll('title')[0];
-          // if there is no valid title, returns generic placeholder string
-          if (!title) {
-              let placeholderText = "Untitled webpage"
-              return placeholderText
-          }
-          console.log(title);
-          return title.innerText;
-      });
+    .then((response) => {
+      // checks whether response status code is not in 200-299 range 
+      if (!response.ok) {
+        throw new Error("Unsuccessful fetch operation. Please try again.");
+      }
+      return response.text();
+    })
+    .then((html) => {
+      const doc = new DOMParser().parseFromString(html, "text/html");
+      const title = doc.querySelectorAll('title')[0];
+      // if there is no valid title, returns generic placeholder string
+      if (!title) {
+        let placeholderText = "Untitled webpage"
+        return placeholderText
+      }
+      console.log(title);
+      return title.innerText;
+    });
 };
 
 
 // Helper method that takes a string (from the QR scanner results) and saves the URL, its title, and a timestamp entry to an 
 // archive JSON that can be accessed later to view previously scanned QR codes. Saves JSON locally. 
 function saveCode(scanResults) {
-    // Set up the qr_info object to be saved to a local file
-    const scanText = String(scanResults);
-    const urlTitle = String(getTitle(scanResults));
-    const timestampStr = test_date = new Date().toDateString();
-    const qrInfo = {url: scanText, title: urlTitle , date: timestampStr};
-    let localData = localStorage.getItem('qrHistory');
+  // Set up the qr_info object to be saved to a local file
+  const scanText = String(scanResults);
+  const urlTitle = String(getTitle(scanResults));
+  const timestampStr = test_date = new Date().toDateString();
+  const qrInfo = { url: scanText, title: urlTitle, date: timestampStr };
+  let localData = localStorage.getItem('qrHistory');
 
-    // Sets a blank array for local data, if there is no QR scan history JSON
-    if (!localData) {
-        localData = [];
-    }
+  // Sets a blank array for local data, if there is no QR scan history JSON
+  if (!localData) {
+    localData = [];
+  }
 
-    // Parses the QR scan history JSON into a a logical array if the JSON already exists
-    else {
-        localData = JSON.parse(localData);
-    }
+  // Parses the QR scan history JSON into a a logical array if the JSON already exists
+  else {
+    localData = JSON.parse(localData);
+  }
 
-    // Adds the QR info object to the history array and updates the JSON with the new array
-    localData.push(qrInfo);
-    localStorage.setItem('qrHistory', JSON.stringify(localData));
+  // Adds the QR info object to the history array and updates the JSON with the new array
+  localData.push(qrInfo);
+  localStorage.setItem('qrHistory', JSON.stringify(localData));
 
-    // Testing - Uses alert to validate/monitor localStorage
-    // const validation = localStorage.getItem('qrHistory');
-    // alert(String(validation));
+  // Testing - Uses alert to validate/monitor localStorage
+  // const validation = localStorage.getItem('qrHistory');
+  // alert(String(validation));
 }
 
 

@@ -6,123 +6,128 @@ Description:  Styles for HTML pages
 /*  TO DO: Everything */
 
 html {
-    height: 100%;
-  }
-  
-  body {
-    background-color: black;
-    color: white;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: 'Ubuntu', sans-serif;
-  }
+  height: 100%;
+}
 
-  ul {
-      list-style-type: none;
-  }
+body {
+  background-color: black;
+  color: white;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Ubuntu', sans-serif;
+}
 
-  a {
-      color: white;
-      text-decoration: none;
-  }
+ul {
+  list-style-type: none;
+}
 
-  .container {
-      margin: 10px;
-      padding: 25px;
-      text-align: center;
-  }
+a {
+  color: white;
+  text-decoration: none;
+}
 
-  #archive-div {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-  }
+.container {
+  margin: 10px;
+  padding: 25px;
+  text-align: center;
+}
 
-  #archive-table {
-      align-self: center;
-      width: 70%;
-  }
+#archive-div {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
 
-  #archive-table td {
-      padding: 10px 30px;
-  }
+#archive-table {
+  align-self: center;
+  width: 70%;
+}
 
-  #archive-btn {
-      cursor: pointer;
-      position: relative;
-      margin-top: 20px;
-      height: 30px;
-      width: 100px;
-      background-color: rgb(33, 156, 228);
-      color: white;
-      border: none;
-      border-radius: 20px;
-  }
+#archive-table td {
+  padding: 10px 30px;
+}
 
-  #add-btn {
-    cursor: pointer;
-    position: relative;
-    height: 30px;
-    width: 100px;
-    background-color: rgb(33, 156, 228);
-    color: white;
-    border: none;
-    border-radius: 20px;
-  }
+#archive-btn {
+  cursor: pointer;
+  position: relative;
+  margin-top: 20px;
+  height: 30px;
+  width: 100px;
+  background-color: rgb(33, 156, 228);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  transition: all 250ms ease;
+}
 
-  #added-to {
-    margin: 20px;
-  }
+#archive-btn:hover {
+  background-color: rgb(153, 218, 255);
+}
 
-  #cancel-btn {
-    margin: 10px 0 10px 0;
-    cursor: pointer;
-    position: relative;
-    height: 30px;
-    width: 100px;
-    background-color: rgb(211, 79, 79);
-    color: white;
-    border: none;
-    border-radius: 20px;
-  }
+#add-btn {
+  cursor: pointer;
+  position: relative;
+  height: 30px;
+  width: 100px;
+  background-color: rgb(33, 156, 228);
+  color: white;
+  border: none;
+  border-radius: 20px;
+}
 
-  #delete-btn {
-    cursor: pointer;
-    position: relative;
-    height: 30px;
-    width: 100px;
-    background-color: rgb(211, 79, 79);
-    color: white;
-    border: none;
-    border-radius: 20px;
-  }
+#added-to {
+  margin: 20px;
+}
 
-  #qrchive-logo {
-    height: 8em;
-  }
-  
-  #qr-canvas {
-    margin-top: 55px;
-    border-radius: 5px;
-    width: calc(100% - 20px);
-    max-width: 400px;
-  }
-  
-  #btn-scan-qr {
-    cursor: pointer;
-  }
-  
-  #btn-scan-qr img {
-    margin: 20px;
-    height: 9em;
-    background: white;
-  }
+#cancel-btn {
+  margin: 10px 0 10px 0;
+  cursor: pointer;
+  position: relative;
+  height: 30px;
+  width: 100px;
+  background-color: rgb(211, 79, 79);
+  color: white;
+  border: none;
+  border-radius: 20px;
+}
 
-  #qr-result {
-      margin: 30px;
-  }
+#delete-btn {
+  cursor: pointer;
+  position: relative;
+  height: 30px;
+  width: 100px;
+  background-color: rgb(211, 79, 79);
+  color: white;
+  border: none;
+  border-radius: 20px;
+}
 
-  #outputData {
-      margin-right: 20px;
-  }
+#qrchive-logo {
+  height: 8em;
+}
+
+#qr-canvas {
+  margin-top: 55px;
+  border-radius: 5px;
+  width: calc(100% - 20px);
+  max-width: 400px;
+}
+
+#btn-scan-qr {
+  cursor: pointer;
+}
+
+#btn-scan-qr img {
+  margin: 20px;
+  height: 9em;
+  background: white;
+}
+
+#qr-result {
+  margin: 30px;
+}
+
+#outputData {
+  margin-right: 20px;
+}
