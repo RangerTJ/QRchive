@@ -97,7 +97,6 @@ archiveElement.onclick = () => {
 
 
 addBtnElement.onclick = () => {
-  console.log('hit');
   // alert(getTitle(outputData.innerText))  // Test for getTitle output
   // Adds scanned QR code information to local storage
   saveCode(outputData.innerText);
@@ -142,6 +141,7 @@ const getTitle = (url) => {
               let placeholderText = "Untitled webpage"
               return placeholderText
           }
+          console.log(title);
           return title.innerText;
       });
 };
