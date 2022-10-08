@@ -1,7 +1,7 @@
 # QRchive
 Have you ever scanned a QR code, then lost track of it? Often QR code scans are a "one and done" thing and this is no big deal. But often enough (and always when it's least convenient), it would be *really* nice to recall something that you scanned earlier. That was the driving thought behind this project.  
 
-We wanted to make an easy 1-stop shop where you can both scan a code and store the decoded results in an archive. This way, you can always pull it up later! This program can run on a smart phone, like most scanner apps (most modern browsers). That said, since it's a web app, it also means that you can easily fire it up on a desktop computer or laptop to scan a QR code too! As long as you're using a supported browser and have a connected camera detected by it, you should be able to scan a code and archive it.  
+We wanted to make an easy 1-stop shop where you can both scan a code and store the decoded results in an archive. This way, you can always pull it up later! This program can run on a smart phone, like most scanner apps. That said, since it's a web app, it also means that you can easily fire it up on a desktop computer or laptop to scan a QR code too! As long as you're using a supported browser and have a connected camera detected by it, you should be able to scan a code and archive it.  
   
 So, without further ado, please enjoy the submission for Team "It's not a bug, it's a feature" for Beaverhacks Fall 2022!  
 
