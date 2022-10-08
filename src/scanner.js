@@ -127,8 +127,8 @@ function scan() {
 
 //Open source tool: https://allorigins.win/
 //Pulls contents from remote HTML URL
-const getTitle = (url) => {
-  return fetch(`https://api.allorigins.win/get?url=${url}`)
+const getTitle = async (url) => {
+  return await fetch(`https://api.allorigins.win/get?url=${url}`)
     .then((response) => {
       // checks whether response status code is not in 200-299 range
       if (!response.ok) {
