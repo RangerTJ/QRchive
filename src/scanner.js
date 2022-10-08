@@ -4,7 +4,7 @@ Original scanner library by ZXing, JavaScript Version ported by Lazar Laszlo
 
 Date: 10/6/2022
 Description:  Code for a web-based QR code scanner. WIP - Modified from original source code to redirect output from a simple text print
-              to alsoarchive the printed information in a JSON file (including time stamp and description, if it is a legitimate web URL).
+              to alsoarchive the printed information in a JSON file (including time stamp and site title, if it is a legitimate web URL).
 */
 
 const qrCode = window.qrcode;
@@ -30,9 +30,7 @@ let scanning = false;
 qrCode.callback = res => {
   if (res) {
     outputData.innerText = res;
-    // TO DO: Possibly alter way result string displays (show w/ description or auto-close or take to archive page or... open prompt, or...?)
-    // TO DO: Run helper method to save URL information to archive JSON
-    
+
     scanning = false;
 
     video.srcObject.getTracks().forEach(track => {
@@ -98,8 +96,8 @@ archiveElement.onclick = () => {
 
 addBtnElement.onclick = () => {
   console.log('hit');
-  // Hope it works! Should save the code to local storage
   // alert(getTitle(outputData.innerText))  // Test for getTitle output
+  // Adds scanned QR code information to local storage
   saveCode(outputData.innerText);
   addedToElement.hidden = false
 }
@@ -147,15 +145,15 @@ const getTitle = (url) => {
 };
 
 
-// Helper method that takes a string (from the QR scanner results) and saves the URL, its description, and a timestamp entry to an 
+// Helper method that takes a string (from the QR scanner results) and saves the URL, its title, and a timestamp entry to an 
 // archive JSON that can be accessed later to view previously scanned QR codes. Saves JSON locally. 
 function saveCode(scanResults)
 {
     // Set up the qr_info object to be saved to a local file
     const scanText = String(scanResults);
-    const desc = String(getTitle(scanResults));
+    const urlTitle = String(getTitle(scanResults));
     const timestampStr = test_date = new Date().toDateString();
-    const qrInfo = {url: scanText, description: desc , time: timestampStr};
+    const qrInfo = {url: scanText, title: urlTitle , time: timestampStr};
     let localData = localStorage.getItem('qrHistory');
 
     // Sets a blank array for local data, if there is no QR scan history JSON
