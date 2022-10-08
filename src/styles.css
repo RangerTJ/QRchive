@@ -33,6 +33,10 @@ a {
   text-align: center;
 }
 
+.table-style {
+  text-align: left;
+}
+
 #archive-div {
   margin-top: 20px;
   display: flex;

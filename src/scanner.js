@@ -187,19 +187,21 @@ function archiveUpdate() {
 
   // Wipe out the old table contents and start fresh!
   archiveTable.innerHTML = "";
-  archiveTable.classList.add("table-style");
-  archiveTable.CssClass = "table-style";
+
+  // #archive-table td seems to be what effects the archive table's text
+  archiveTable.classList.add('table-style');
+  // archiveTable.CssClass = "table-style";
 
   // Set the headers
-  let tableHeaders = ["Scanned QR Code URL/Result", "Page Title", "Date"];
+  let tableHeaders = ["Result", "Scan Data / URL", "Date"];
 
   // Loop through localStorage QR history to build and populate the table (in reverse, so most recent is top)
   for (let index = 0; index < localData.length; index++) {
     let current_row = archiveTable.insertRow(index);
     current_row.insertCell(0).innerHTML =
-      localData[localData.length - 1 - index].url;
-    current_row.insertCell(1).innerHTML =
       localData[localData.length - 1 - index].title;
+    current_row.insertCell(1).innerHTML =
+      localData[localData.length - 1 - index].url;
     current_row.insertCell(2).innerHTML =
       localData[localData.length - 1 - index].date;
   }
