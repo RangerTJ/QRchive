@@ -3,8 +3,6 @@ Date: 10/6/2022
 Description:  Styles for HTML pages
 */
 
-/*  TO DO: Everything */
-
 html {
   height: 100%;
 }
@@ -29,7 +27,7 @@ a {
 
 .container {
   margin: 10px;
-  padding: 25px;
+  padding: 10px;
   text-align: center;
 }
 
@@ -45,11 +43,12 @@ a {
 
 #archive-table {
   align-self: center;
-  width: 90%;
+  width: 70%;
 }
 
 #archive-table td {
-  padding: 10px 30px;
+  padding: 10px;
+  /* padding: 10px 30px; */
 }
 
 #archive-btn {
