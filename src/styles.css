@@ -29,7 +29,7 @@ html {
 
   .container {
       margin: 10px;
-      padding: 10px;
+      padding: 25px;
       text-align: center;
   }
 
@@ -41,6 +41,7 @@ html {
 
   #archive-table {
       align-self: center;
+      width: 70%;
   }
 
   #archive-table td {
@@ -70,8 +71,23 @@ html {
     border-radius: 20px;
   }
 
+  #added-to {
+    margin: 20px;
+  }
+
   #cancel-btn {
     margin: 10px 0 10px 0;
+    cursor: pointer;
+    position: relative;
+    height: 30px;
+    width: 100px;
+    background-color: rgb(211, 79, 79);
+    color: white;
+    border: none;
+    border-radius: 20px;
+  }
+
+  #delete-btn {
     cursor: pointer;
     position: relative;
     height: 30px;
@@ -87,7 +103,8 @@ html {
   }
   
   #qr-canvas {
-    margin-top: 100px;
+    margin-top: 55px;
+    border-radius: 5px;
     width: calc(100% - 20px);
     max-width: 400px;
   }
@@ -97,12 +114,13 @@ html {
   }
   
   #btn-scan-qr img {
-    height: 10em;
+    margin: 20px;
+    height: 9em;
     background: white;
   }
 
   #qr-result {
-      margin-top: 20px;
+      margin: 30px;
   }
 
   #outputData {

@@ -67,6 +67,7 @@ btnScanQR.onclick = () => {
       scan();
     });
   
+  // Return back to default if cancel button is clicked
   cancelBtnElement.onclick = () => {
 
     scanning = false;
@@ -101,6 +102,10 @@ addBtnElement.onclick = () => {
   // Adds scanned QR code information to local storage
   saveCode(outputData.innerText);
   addedToElement.hidden = false
+
+  // Hides add button and link once added so that it doesn't get added again upon multiple clicks
+  outputData.hidden = true;
+  addBtnElement.hidden = true;
 }
 
 
