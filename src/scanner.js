@@ -179,7 +179,6 @@ function saveCode(scanResults) {
 
 // Generates a table and populates it based on qrHistory in local storage
 // Modeled off approach at https://stackoverflow.com/questions/64949448/how-to-create-a-table-from-an-array-using-javascript
-
 function archiveUpdate() {
   // Get the QR history from JSON and turn it into logical array
   let localData = localStorage.getItem('qrHistory');
@@ -210,3 +209,9 @@ function archiveUpdate() {
 
   //TO-DO: If JSON is empty, add a 1-row/1-column entry that says "There is nothing to see here!" instead
 };
+
+// "Beak Glass in Case of Emergency" to clear the local archive
+function clearArchive() {
+  const localData = [];
+  localStorage.setItem('qrHistory', JSON.stringify(localData));
+}
