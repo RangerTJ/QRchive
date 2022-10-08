@@ -187,16 +187,18 @@ function archiveUpdate() {
 
   // Wipe out the old table contents and start fresh!
   archiveTable.innerHTML = "";
+  archiveTable.classList.add('table-style');
+  archiveTable.CssClass = 'table-style'
 
   // Set the headers
-  let tableHeaders = ["QR Result", "Page Title", "Date"];
+  let tableHeaders = ["Scanned QR Code URL/Result", "Page Title", "Date"];
 
-  // Loop through localStorage QR history to build and populate the table
+  // Loop through localStorage QR history to build and populate the table (in reverse, so most recent is top)
   for (let index = 0; index < localData.length; index++) {
     let current_row = archiveTable.insertRow(index);
-    current_row.insertCell(0).innerHTML = localData[index].url;
-    current_row.insertCell(1).innerHTML = localData[index].title;
-    current_row.insertCell(2).innerHTML = localData[index].date;
+    current_row.insertCell(0).innerHTML = localData[localData.length - 1 - index].url;
+    current_row.insertCell(1).innerHTML = localData[localData.length - 1 - index].title;
+    current_row.insertCell(2).innerHTML = localData[localData.length - 1 - index].date;
   }
 
   // Create the header and loop through the header array to populate it
@@ -206,8 +208,5 @@ function archiveUpdate() {
     headerRow.insertCell(index).innerHTML = tableHeaders[index];
   };
 
-  document.body.append(archiveTable);
-
   //TO-DO: If JSON is empty, add a 1-row/1-column entry that says "There is nothing to see here!" instead
-  //TO-DO: Figure out what formatting got all weird and left justified instead of centered
 };
