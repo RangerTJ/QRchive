@@ -14,7 +14,7 @@ const canvasElement = document.getElementById("qr-canvas");
 const cancelBtnElement = document.getElementById("cancel-btn")
 
 const archiveElement = document.getElementById("archive-btn")
-const archiveTable = document.getElementById("archive-table")
+const archiveTable = document.getElementById("archive-card")
 
 const clickAboveElement = document.getElementById("click-to-scan")
 const addBtnElement = document.getElementById("add-btn")
