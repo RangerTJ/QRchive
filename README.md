@@ -23,4 +23,4 @@ So, without further ado, please enjoy the submission for Team **"It's not a bug,
 * Camera must not be blocked in the browser you are trying to run the app from. The camera setting may need to be changed from "ask first" to "allowed while app is running" on the system level for some browsers (encounted with Edge on Android), to allow the ask-first option for camera use within the browser's settings. As long as you are prompted for camera access and OK it, the scanner should work, in our tests. If the program doesn't appear to be working when trying to scan something, there's a good chance it's being caused by your camera being blocked by your browser.
 
 # Video Demo
-<iframe width="560" height="315" src="https://www.youtube.com/embed/HS3ooqR8dVc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+https://www.youtube.com/embed/HS3ooqR8dVc
