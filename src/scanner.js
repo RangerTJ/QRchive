@@ -5,6 +5,9 @@ Original scanner library by ZXing, JavaScript Version ported by Lazar Laszlo
 Date: 10/6/2022
 Description:  Code for a web-based QR code scanner. WIP - Modified from original source code to redirect output from a simple text print
               to alsoarchive the printed information in a JSON file (including time stamp and site title, if it is a legitimate web URL).
+              
+              **All scanning and image parsing functionality code in this file is from the above cited project.**
+              New code contributions are for processing the results of the QR scanning process and for creating a user-interface.
 */
 
 const qrCode = window.qrcode;
@@ -38,7 +41,6 @@ qrCode.callback = (res) => {
     });
 
     qrResult.hidden = false;
-    archiveElement.hidden = false;
     clickAboveElement.hidden = false;
     cancelBtnElement.hidden = true;
     canvasElement.hidden = true;
@@ -88,6 +90,7 @@ btnScanQR.onclick = () => {
 };
 
 archiveElement.onclick = () => {
+  qrResult.hidden = true;
   let data = localStorage.getItem("qrHistory");
   if (!data || !data.length) return;
   if (!archiveTable.hidden) {
@@ -109,6 +112,7 @@ addBtnElement.onclick = () => {
 
   // Hides archive table so next viewing of it is refreshed with the new record
   archiveTable.hidden = true;
+  archiveElement.hidden = false;
 };
 
 function tick() {
