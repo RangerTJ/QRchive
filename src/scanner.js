@@ -8,6 +8,8 @@ Description:  Code for a web-based QR code scanner. WIP - Modified from original
               
               **All scanning and image parsing functionality code in this file is from the above cited project.**
               New code contributions are for processing the results of the QR scanning process and for creating a user-interface.
+              Code in the first section of this file is a mix of original code and source code from the cited project and is blended
+              in some cases where source functions needed to interact with new UI elements.
 */
 
 const qrCode = window.qrcode;
@@ -23,6 +25,7 @@ const clearArchiveBtnElement = document.getElementById("clear-archive-btn");
 const clickAboveElement = document.getElementById("click-to-scan");
 const addBtnElement = document.getElementById("add-btn");
 const addedToElement = document.getElementById("added-to");
+const archiveClearedElement = document.getElementById("archive-cleared");
 const canvas = canvasElement.getContext("2d");
 
 const qrResult = document.getElementById("qr-result");
@@ -31,16 +34,17 @@ const btnScanQR = document.getElementById("btn-scan-qr");
 
 let scanning = false;
 
+// Executes when a QR code has been succesfully scanned (mix of open source/new code)
 qrCode.callback = (res) => {
   if (res) {
+    // Stop scanning and output decoded text
     outputData.innerText = res;
-
     scanning = false;
-
     video.srcObject.getTracks().forEach((track) => {
       track.stop();
     });
 
+    // UI element changes when scanning stops
     qrResult.hidden = false;
     clickAboveElement.hidden = false;
     canvasElement.hidden = true;
@@ -51,6 +55,7 @@ qrCode.callback = (res) => {
   }
 };
 
+// Starts the scanning process when the QR code "scan" button on the home page is pressed (mix of open source/new code)
 btnScanQR.onclick = () => {
   navigator.mediaDevices
     .getUserMedia({ video: { facingMode: "environment" } })
@@ -62,6 +67,7 @@ btnScanQR.onclick = () => {
       archiveTable.hidden = true;
       clickAboveElement.hidden = true;
       addedToElement.hidden = true;
+      archiveClearedElement.hidden = true;
       cancelBtnElement.hidden = false;
       canvasElement.hidden = false;
       video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
@@ -71,14 +77,15 @@ btnScanQR.onclick = () => {
       scan();
     });
 
-  // Return back to default if cancel button is clicked
+  // Return back to default screen if cancel button is clicked - hide everything by starting elements
   cancelBtnElement.onclick = () => {
+    // Aborts scanning operations
     scanning = false;
-
     video.srcObject.getTracks().forEach((track) => {
       track.stop();
     });
 
+    // Hide/unhide UI layers
     qrResult.hidden = false;
     archiveElement.hidden = false;
     clickAboveElement.hidden = false;
@@ -89,8 +96,10 @@ btnScanQR.onclick = () => {
   };
 };
 
+// Toggles the archive table display on and off. Rebuilds the table with most recent data when turned on
 archiveElement.onclick = () => {
   qrResult.hidden = true;
+  archiveClearedElement.hidden = true;
   let data = localStorage.getItem("qrHistory");
   if (!data || !data.length) return;
   if (!archiveTable.hidden) {
@@ -103,6 +112,7 @@ archiveElement.onclick = () => {
   }
 };
 
+// Starts the process of saving a scan to the local storage archive
 addBtnElement.onclick = () => {
   // Adds scanned QR code information to local storage
   saveCode(outputData.innerText);
@@ -118,12 +128,12 @@ addBtnElement.onclick = () => {
   cancelBtnElement.hidden = true;
 };
 
+// Hides the archive table then wipe its contents
 clearArchiveBtnElement.onclick = () => {
-  // Hide table then wipe its contents
   clearArchiveBtnElement.hidden = true;
   archiveTable.hidden = true;
   clearArchive();
-  // Confirmation message
+  archiveClearedElement.hidden = false;
 };
 
 
@@ -143,6 +153,12 @@ function scan() {
     setTimeout(scan, 300);
   }
 }
+
+/* 
+End of this portion of cited open-source code. 
+All code below this point is original and created specifically for this project.
+*/
+
 
 //Open source tool: https://allorigins.win/
 //Pulls contents from remote HTML URL

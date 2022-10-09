@@ -80,9 +80,14 @@ a {
   border: none;
   border-radius: 20px;
   font-weight: bold;
+  margin-top: 20px;
 }
 
 #added-to {
+  margin: 20px;
+}
+
+#archive-cleared {
   margin: 20px;
 }
 
@@ -149,8 +154,7 @@ a {
 }
 
 #outputData {
-  /* margin-right: 20px; */
-  margin: 20px;
+  margin-right: 20px;
 }
 
 #credits {
