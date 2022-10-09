@@ -63,6 +63,7 @@ a {
   border: none;
   border-radius: 20px;
   transition: all 250ms ease;
+  font-weight: bold;
 }
 
 #archive-btn:hover {
@@ -78,6 +79,7 @@ a {
   color: white;
   border: none;
   border-radius: 20px;
+  font-weight: bold;
 }
 
 #added-to {
@@ -105,6 +107,20 @@ a {
   color: white;
   border: none;
   border-radius: 20px;
+  font-weight: bold;
+}
+
+#clear-archive-btn {
+  margin-top: 100px;
+  cursor: pointer;
+  position: relative;
+  height: 30px;
+  width: 100px;
+  background-color: rgb(215, 114, 13);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
 }
 
 #qrchive-logo {
@@ -134,4 +150,11 @@ a {
 
 #outputData {
   margin-right: 20px;
+}
+
+#credits {
+  font-size: x-small;
+  font-style: italic;
+  font-weight: lighter;
+  margin-top: 50px;
 }

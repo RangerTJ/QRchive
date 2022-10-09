@@ -18,6 +18,7 @@ const cancelBtnElement = document.getElementById("cancel-btn");
 
 const archiveElement = document.getElementById("archive-btn");
 const archiveTable = document.getElementById("archive-table");
+const clearArchiveBtnElement = document.getElementById("clear-archive-btn");
 
 const clickAboveElement = document.getElementById("click-to-scan");
 const addBtnElement = document.getElementById("add-btn");
@@ -42,7 +43,6 @@ qrCode.callback = (res) => {
 
     qrResult.hidden = false;
     clickAboveElement.hidden = false;
-    // cancelBtnElement.hidden = true;
     canvasElement.hidden = true;
     btnScanQR.hidden = false;
     addBtnElement.hidden = false;
@@ -95,9 +95,11 @@ archiveElement.onclick = () => {
   if (!data || !data.length) return;
   if (!archiveTable.hidden) {
     archiveTable.hidden = true;
+    clearArchiveBtnElement.hidden = true;
   } else {
     archiveUpdate();
     archiveTable.hidden = false;
+    clearArchiveBtnElement.hidden = false;
   }
 };
 
@@ -116,6 +118,16 @@ addBtnElement.onclick = () => {
   cancelBtnElement.hidden = true;
 };
 
+clearArchiveBtnElement.onclick = () => {
+  // Hide table then wipe its contents
+  clearArchiveBtnElement.hidden = true;
+  archiveTable.hidden = true;
+  clearArchive();
+  // Confirmation message
+};
+
+
+// Tick and scan functions for scanner from project tutorial at https://www.sitepoint.com/create-qr-code-reader-mobile-website/
 function tick() {
   canvasElement.height = video.videoHeight;
   canvasElement.width = video.videoWidth;
@@ -148,7 +160,7 @@ const getTitle = async (url) => {
       const title = doc.querySelectorAll("title")[0];
       // if there is no valid title, returns generic placeholder string
       if (!title) {
-        let placeholderText = "Untitled webpage";
+        let placeholderText = "Untitled";
         return placeholderText;
       }
       console.log(title);
