@@ -42,7 +42,7 @@ qrCode.callback = (res) => {
 
     qrResult.hidden = false;
     clickAboveElement.hidden = false;
-    cancelBtnElement.hidden = true;
+    // cancelBtnElement.hidden = true;
     canvasElement.hidden = true;
     btnScanQR.hidden = false;
     addBtnElement.hidden = false;
@@ -113,6 +113,7 @@ addBtnElement.onclick = () => {
   // Hides archive table so next viewing of it is refreshed with the new record
   archiveTable.hidden = true;
   archiveElement.hidden = false;
+  cancelBtnElement.hidden = true;
 };
 
 function tick() {
