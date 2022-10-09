@@ -1,9 +1,9 @@
-<!-- /* 
-Date: 10/6/2022
+<!--
+Beaverhacks Fall 2022
+Team: "It's not a bug, it's a feature"
+Date: 10/8/2022
 Description:  Launch page for QRchive. Gives access to scanner functionality and has a link to view archived results.
-*/
-
-// TO DO: Everything -->
+-->
 
 <!DOCTYPE html>
 <html>
@@ -18,9 +18,11 @@ Description:  Launch page for QRchive. Gives access to scanner functionality and
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
     <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
   </head>
-
+  
   <body>
     <div class="container">
+      
+      <!-- Default/core elements: Logo, scan button, and button to view archive -->
         <div>
             <img id="qrchive-logo" src="media/QRchivelogo.png">
         </div>
@@ -34,6 +36,7 @@ Description:  Launch page for QRchive. Gives access to scanner functionality and
         <button id="archive-btn">View Archive</button>
       </div>
 
+      <!-- Canvas and Cancel Button -->
       <div>
           <div>
               <canvas hidden="" id="qr-canvas"></canvas>
@@ -43,39 +46,34 @@ Description:  Launch page for QRchive. Gives access to scanner functionality and
           </div>
       </div>
 
+      <!-- QR scan result output lines and add/wipe confirmation messages -->
       <div id="qr-result" hidden="">
         <span id="outputData"></span>
         <button id="add-btn">Save</button>
         <p hidden="" id="added-to">New result successfully added to the archive!</p>
       </div>
+
       <div>
         <p hidden="" id="archive-cleared">Archive successfully cleared!</p>
       </div>
 
+    <!-- Dynamic Table generated from JSON of archive -->
     <div id="archive-div">
      <table id="archive-table" hidden="">
-       <tr>
-         <td>Result</td>
-         <td>Scan Data/URL</td>
-         <td>Date</td>
-       </tr>
-       <!--Example row for testing-->
-       <tr>
-        <td>Example Title</td>
-        <td><a href="">https://example1.html</a></td>
-        <td>Oct 6 2022</td>
-       </tr>
      </table>
     </div>
 
+    <!-- Wipe archive button -->
     <div>
       <button hidden="" id="clear-archive-btn">Clear Archive</button>
     </div>
 
+    <!-- Footer/Credits -->
     <div>
       <p id="credits">By Beaverhacks Fall 2022 Team: "It's not a bug, it's a feature"</p>
     </div>
 
+    <!-- Scripts Used / Web App Service -->
     <script src="./src/scanner.js"></script>
     <script type="module">
       // Import the functions you need from the SDKs you need

@@ -1,10 +1,13 @@
 /* 
+Beaverhacks Fall 2022
+Team: "It's not a bug, it's a feature"
+Date: 10/8/2022
+
 Origina/pre-modified source code from open source project at: https://www.sitepoint.com/create-qr-code-reader-mobile-website/
 Original scanner library by ZXing, JavaScript Version ported by Lazar Laszlo
 
-Date: 10/6/2022
-Description:  Code for a web-based QR code scanner. WIP - Modified from original source code to redirect output from a simple text print
-              to alsoarchive the printed information in a JSON file (including time stamp and site title, if it is a legitimate web URL).
+Description:  Code for a web-based QR code scanner. Modified from original source code to redirect output from a simple text print
+              to also archive the printed information in a JSON file (including time stamp and site title, if it is a legitimate web URL).
               
               **All scanning and image parsing functionality code in this file is from the above cited project.**
               New code contributions are for processing the results of the QR scanning process and for creating a user-interface.
