@@ -44,7 +44,7 @@ a {
 
 #archive-table {
   align-self: center;
-  width: 70%;
+  width: 100%;
 }
 
 #archive-table td {
@@ -149,7 +149,8 @@ a {
 }
 
 #outputData {
-  margin-right: 20px;
+  /* margin-right: 20px; */
+  margin: 20px;
 }
 
 #credits {
