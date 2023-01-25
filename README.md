@@ -26,7 +26,7 @@ So, without further ado, please enjoy the submission for Team **"It's not a bug,
 [Watch it now!](https://youtu.be/HS3ooqR8dVc)
 
 # Development Notes
-*Developed with HTML, CSS, and JavaScript using the open-source ZXing image processing library as ported to JS by Lazar Laszlo.  
-*QR Scanner functionality sourced from this Sitepoint article: [How to Create a QR Code Reader for Your Mobile Website](https://www.sitepoint.com/create-qr-code-reader-mobile-website/). The provided minified version of the JS ZXing library was used to implement core scanner functions for our application.  
-*Read about our project on [Devpost](https://devpost.com/software/qrchive)!
+* Developed with HTML, CSS, and JavaScript using the open-source ZXing image processing library as ported to JS by Lazar Laszlo.  
+* QR Scanner functionality sourced from this Sitepoint article: [How to Create a QR Code Reader for Your Mobile Website](https://www.sitepoint.com/create-qr-code-reader-mobile-website/). The provided minified version of the JS ZXing library was used to implement core scanner functions for our application.  
+* Read about our project on [Devpost](https://devpost.com/software/qrchive)!
 
