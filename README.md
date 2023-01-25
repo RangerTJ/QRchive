@@ -16,7 +16,7 @@ So, without further ado, please enjoy the submission for Team **"It's not a bug,
 * Firefox (Windows)
 * Firefox Focus (Android)
 
-# Notes 
+# Usage Notes 
 * Archives are stored using your browser's local storage in a JSON file (so will reset if you wipe local storage). 
 * Each browser you use will have its own distinct archive file, since they use their own local storage attributes.
 * JavaScript must be enabled in your browser for the program to function.
@@ -24,3 +24,9 @@ So, without further ado, please enjoy the submission for Team **"It's not a bug,
 
 # Video Demo
 [Watch it now!](https://youtu.be/HS3ooqR8dVc)
+
+# Development Notes
+Developed with HTML, CSS, and JavaScript using the open-source ZXing image processing library as ported to JS by Lazar Laszlo.  
+QR Scanner functionality sourced from [this Sitepoint article: How to Create a QR Code Reader for Your Mobile Website](https://www.sitepoint.com/create-qr-code-reader-mobile-website/). The provided minified version of the JS ZXing library was used to implement core scanner functions for our application.  
+Read about our project on [Devpost](https://devpost.com/software/qrchive)!
+
