@@ -6,7 +6,7 @@ We wanted to make an easy 1-stop shop where you can both scan a code and store t
 So, without further ado, please enjoy the submission for Team **"It's not a bug, it's a feature"** for Beaverhacks Fall 2022!  
 
 # Live Demo
-* https://github.com/RangerTJ/QRchive
+* [Click Here!](https://qrchive-2ce99.web.app/e-2ce99.web.app)
 
 # Features
 * QR Code Scanner that works from browsers with camera support.  
